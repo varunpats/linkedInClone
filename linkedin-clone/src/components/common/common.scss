@@ -1,0 +1,18 @@
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    gap: 15px;
+
+    p {
+        font-family: system-ui;
+        font-size: 20px;
+        font-weight: 500;
+    }
+}
+
+.ant-spin-dot-item {
+    background-color: #0072b1 !important;
+}
