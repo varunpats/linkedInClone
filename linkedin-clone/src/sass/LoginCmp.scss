@@ -4,13 +4,13 @@ $linkedinBlue3: #004c75;
 
 body {
     margin: 0;
-    padding: 1.8em;
     background-color: #F4F2EE !important;
     overflow: hidden;
     height: 100vh;
 }
 
 .login-wrapper {
+    padding: 1.8em;
 
     .login-wrapper-inner {
         display: flex;
