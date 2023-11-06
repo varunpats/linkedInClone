@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Modal } from 'antd';
 import './index.scss';
 
-const ModalCmp = ({ modalOpen, setModalOpen, sendStatus, status, setstatus }) => {
+const ModalCmp = ({ modalOpen, setModalOpen, sendStatus, status, setStatus }) => {
     return (
         <>
             <Modal
@@ -17,7 +17,7 @@ const ModalCmp = ({ modalOpen, setModalOpen, sendStatus, status, setstatus }) =>
                     </Button>
                 ]}
             >
-                <input className='modal-input' placeholder='What do you want to talk about?' onChange={(e) => setstatus(e.target.value)} />
+                <input className='modal-input' placeholder='What do you want to talk about?' onChange={(e) => setStatus(e.target.value)} />
             </Modal>
         </>
     );

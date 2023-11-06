@@ -15,6 +15,7 @@ export default function RegisterCmp() {
         try {
             let resp = await RegisterAPI(cred.email, cred.password);
             toast.success('Sign up successful');
+            localStorage.setItem('userEmail', resp.user.email);
             navigate('/home');
         } catch (err) {
             console.log(err);

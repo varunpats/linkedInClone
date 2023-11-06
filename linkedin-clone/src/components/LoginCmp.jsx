@@ -15,6 +15,7 @@ export default function LoginCmp() {
         try {
             let resp = await LoginAPI(cred.email, cred.password);
             toast.success('Signed in to Linkedin!');
+            localStorage.setItem('userEmail', resp.user.email);
             navigate('/home');
         } catch (err) {
             console.log(err);
