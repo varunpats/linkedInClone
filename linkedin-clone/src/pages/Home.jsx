@@ -5,7 +5,7 @@ import { auth } from '../firebaseConfig';
 import HomeCmp from '../components/HomeCmp';
 import Loader from '../components/common/Loader';
 
-export default function Home() {
+export default function Home({ currentUser }) {
     const [loading, setLoading] = useState(true)
     const navigate = useNavigate();
 
@@ -19,5 +19,5 @@ export default function Home() {
             });
         });
     }, [])
-    return loading ? <Loader /> : <HomeCmp />
+    return loading ? <Loader /> : <HomeCmp currentUser={currentUser} />
 }

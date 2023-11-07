@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { RegisterAPI, GoogleSignInAPI } from '../api/AuthApi';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import GoogleButton from 'react-google-button';
 import { useNavigate } from 'react-router-dom';
+import GoogleButton from 'react-google-button';
+import { RegisterAPI, GoogleSignInAPI } from '../api/AuthApi';
+import { addUsers } from '../api/FirestoreApi';
+import 'react-toastify/dist/ReactToastify.css';
 import '../sass/LoginCmp.scss';
 import LinkedinLogo from '../assets/Linkedin-logo.png';
 
@@ -15,6 +16,10 @@ export default function RegisterCmp() {
         try {
             let resp = await RegisterAPI(cred.email, cred.password);
             toast.success('Sign up successful');
+            addUsers({
+                name: cred.name,
+                email: cred.email
+            })
             localStorage.setItem('userEmail', resp.user.email);
             navigate('/home');
         } catch (err) {

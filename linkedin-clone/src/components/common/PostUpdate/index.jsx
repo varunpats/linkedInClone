@@ -3,9 +3,10 @@ import ModalCmp from '../Modal/index';
 import { addPosts, getPosts } from '../../../api/FirestoreApi';
 import PostCard from '../PostCard/index';
 import { getCurrentTime } from '../../../helpers/useMoment';
+import getUniqueId from '../../../helpers/getUniqueId';
 import './index.scss';
 
-export default function PostStatus() {
+export default function PostStatus({ currentUser }) {
     const [modalOpen, setModalOpen] = useState(false);
     const [status, setStatus] = useState("");
     const [posts, setPosts] = useState([]);
@@ -15,7 +16,9 @@ export default function PostStatus() {
         let obj = {
             status,
             timestamp: getCurrentTime('lll'),
-            userEmail: userEmail
+            userEmail: userEmail,
+            userName: currentUser[0].name,
+            postId: getUniqueId()
         }
 
         await addPosts(obj);
@@ -36,7 +39,7 @@ export default function PostStatus() {
 
             {posts.map(post => {
                 return (
-                    <PostCard post={post} />
+                    <PostCard key={post.id} post={post} />
                 )
             })}
         </div>

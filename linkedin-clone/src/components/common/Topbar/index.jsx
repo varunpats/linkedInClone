@@ -4,6 +4,7 @@ import { HiUsers, HiBriefcase, HiSearch } from 'react-icons/hi';
 import { FaHome } from 'react-icons/fa';
 import { AiFillMessage } from 'react-icons/ai';
 import { BsFillBellFill } from 'react-icons/bs';
+import ProfilePopup from '../ProfilePopup/index.jsx';
 import './index.scss';
 import logo from '../../../assets/Linkedin-icon.png';
 import user from '../../../assets/user.png';
